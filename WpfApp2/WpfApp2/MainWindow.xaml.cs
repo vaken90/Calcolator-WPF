@@ -36,7 +36,7 @@ namespace WpfApp2
             if (!double.TryParse(textBox.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double result))
             {
                 // La conversione è riuscita, puoi usare il valore di result
-                MessageBox.Show("Valore errato: " );
+                //MessageBox.Show("Valore errato: 1" );
             }
             
 

@@ -8,8 +8,8 @@ namespace WpfApp2
 {
     class Person
     {
-        public double Name { get; set; }
+        public string Name { get; set; }
 
-        public double Name2 { get; set; }
+        public string Name2 { get; set; }
     }
 }

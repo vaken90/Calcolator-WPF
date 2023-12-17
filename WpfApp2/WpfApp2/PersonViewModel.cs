@@ -6,13 +6,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
+ 
 
 namespace WpfApp2
 {
     class PersonViewModel : INotifyPropertyChanged
     {
-        private double _name;
-        private double _name2;
+        private string _num1;
+        private string _num2;
 
         private ICommand _addizioneComando;
 
@@ -28,10 +29,15 @@ namespace WpfApp2
             }
         }
 
-        private void EseguiAddizione()
+        public string EseguiAddizione()
         {
+            double n = Convert.ToDouble(_num1, new System.Globalization.CultureInfo("en-US"));
+            double n2 = Convert.ToDouble(_num2, new System.Globalization.CultureInfo("en-US"));
+            double n3 = n + n2;
             // Logica per eseguire l'addizione
-            MessageBox.Show(Convert.ToString(_name + _name2));
+            MessageBox.Show(n3.ToString());
+            
+            return n3.ToString();
         }
 
         private bool PuoEseguire()
@@ -40,28 +46,28 @@ namespace WpfApp2
             return true; // o false a seconda delle tue condizioni
         }
 
-        public double Name
+        public string Num1
         {
-            get { return _name; }
+            get { return _num1; }
             set
             {
-                if (_name != value)
+                if (_num1 != value)
                 {
-                    _name = value;
-                    OnPropertyChanged(nameof(Name));
+                    _num1 = value;
+                    OnPropertyChanged(nameof(Num1));
                 }
             }
         }
 
-        public double Name2
+        public string Num2
         {
-            get { return _name2; }
+            get { return _num2; }
             set
             {
-                if (_name2 != value)
+                if (_num2 != value)
                 {
-                    _name2 = value;
-                    OnPropertyChanged(nameof(Name2));
+                    _num2 = value;
+                    OnPropertyChanged(nameof(Num2));
                 }
             }
         }

@@ -36,15 +36,18 @@ namespace WpfApp2
             if (!double.TryParse(textBox.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double result))
             {
                 // La conversione è riuscita, puoi usare il valore di result
-                //MessageBox.Show("Valore errato: 1" );
+                MessageBox.Show("Valore errato" );
             }
-            
+            else
+            {
+                // Forza l'aggiornamento del source quando il testo cambia
+                
+                BindingExpression binding = textBox.GetBindingExpression(TextBox.TextProperty);
+                binding?.UpdateSource();
+            }
 
 
-            // Forza l'aggiornamento del source quando il testo cambia
-            
-            BindingExpression binding = textBox.GetBindingExpression(TextBox.TextProperty);
-            binding?.UpdateSource();
+
         }
 
         private void TextBox_TextChanged_1(object sender, TextChangedEventArgs e)
@@ -54,16 +57,19 @@ namespace WpfApp2
 
             if (!double.TryParse(textBox.Text, NumberStyles.AllowDecimalPoint, CultureInfo.InvariantCulture, out double result))
             {
-                // La conversione è riuscita, puoi usare il valore di result
-                MessageBox.Show("Valore errato: ");
+                // La conversione non   riuscita, puoi usare il valore di result
+                MessageBox.Show("Valore errato");
             }
 
+            else
+            {
+                // Forza l'aggiornamento del source quando il testo cambia
+                
+                BindingExpression binding = textBox.GetBindingExpression(TextBox.TextProperty);
+                binding?.UpdateSource();
+            }
 
-
-            // Forza l'aggiornamento del source quando il testo cambia
-
-            BindingExpression binding = textBox.GetBindingExpression(TextBox.TextProperty);
-            binding?.UpdateSource();
+          
         }
     }
 }

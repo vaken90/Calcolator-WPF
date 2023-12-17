@@ -22,6 +22,8 @@ namespace WpfApp2
         public MainWindow()
         {
             InitializeComponent();
+            
+            
 
             // Istanzia il ViewModel e assegnalo come contesto dati
             PersonViewModel viewModel = new PersonViewModel();
@@ -71,5 +73,7 @@ namespace WpfApp2
 
           
         }
+
+      
     }
 }
